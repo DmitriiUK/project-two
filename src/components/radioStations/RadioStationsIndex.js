@@ -3,14 +3,18 @@ import { Link } from 'react-router-dom'
 import RadioStationCard from './RadioStationCard'
 
 import axios from 'axios'
+import _ from 'lodash'
 
 class RadioStationsIndex extends React.Component {
   constructor(props){
     super(props)
 
     this.state = {
-      radioStations: []
+      radioStations: [],
+      searchTerm: ''
     }
+
+    this.handleKeyUp = this.handleKeyUp.bind(this)
   }
 
   getData() {
@@ -35,9 +39,26 @@ class RadioStationsIndex extends React.Component {
     }
   }
 
+  handleKeyUp(e) {
+    this.setState({ searchTerm: e.target.value })
+  }
+
+  filterRadios() {
+    const re = new RegExp(this.state.searchTerm, 'i')
+    const filterRadios = _.filter(this.state.radios, radio => {
+      return re.test(radio.name)
+    })
+    return filterRadios
+  }
+
   render() {
     return (
       <section className="section">
+        <div className="column">
+          <div className="field">
+            <input placeholder="search genre..." className="input" onKeyUp={this.handleKeyUp} />
+          </div>
+        </div>
         <div className="container">
           <div className="columns is-multiline">
             {this.state.radioStations.map(radioStation =>
@@ -45,10 +66,10 @@ class RadioStationsIndex extends React.Component {
                 key={radioStation.id}
                 className="column is-half-tablet is-one-quarter-desktop"
               >
-                <Link to={`/radio/${radioStation.id}`}>
+                <Link to={`/radio/${radioStation.id}/tracks`}>
                   <RadioStationCard
                     title={radioStation.title}
-                    picture={radioStation.picture}
+                    picture={radioStation.picture_medium}
                   />
                 </Link>
               </div>
