@@ -10,6 +10,8 @@ class Tracks extends React.Component {
     this.state = {
       stationTracks: []
     }
+
+    this.convertSeconds = this.convertSeconds.bind(this)
   }
 
   getData() {
@@ -31,6 +33,16 @@ class Tracks extends React.Component {
   componentDidUpdate(prevProps) {
     if(prevProps.location.pathname !== this.props.location.pathname) {
       this.getData()
+    }
+  }
+
+  convertSeconds(duration) {
+    const minutes = Math.floor(duration / 60)
+    const secs = duration % 60
+    if(secs < 10) {
+      return duration = `${minutes}:0${secs}`
+    } else {
+      return duration =`${minutes}:${secs}`
     }
   }
 
@@ -62,7 +74,7 @@ class Tracks extends React.Component {
                           </div>
                           <div className="column">
                             <h4>DURATION</h4>
-                            <h4>{track.duration}</h4>
+                            <h4>{this.convertSeconds(track.duration)}</h4>
                           </div>
                         </div>
                         <div className="column is-full-desktop">
