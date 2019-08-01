@@ -11,10 +11,11 @@ class RadioStationsIndex extends React.Component {
 
     this.state = {
       radioStations: [],
-      searchTerm: ''
+      searchTerm: '',
+      sortTerm: 'title|asc'
     }
 
-    this.handleKeyUp = this.handleKeyUp.bind(this)
+    this.uniqueRadios = this.uniqueRadios.bind(this)
   }
 
   getData() {
@@ -33,35 +34,18 @@ class RadioStationsIndex extends React.Component {
     this.getData()
   }
 
-  componentDidUpdate(prevProps) {
-    if(prevProps.location.pathname !== this.props.location.pathname) {
-      this.getData()
-    }
-  }
-
-  handleKeyUp(e) {
-    this.setState({ searchTerm: e.target.value })
-  }
-
-  filterRadios() {
-    const re = new RegExp(this.state.searchTerm, 'i')
-    const filterRadios = _.filter(this.state.radios, radio => {
-      return re.test(radio.name)
-    })
-    return filterRadios
+  uniqueRadios() {
+    const uniqueStations = _.uniqBy(this.state.radioStations, this.state.radioStations.title)
+    console.log(`Unique: ${uniqueStations}`)
+    return uniqueStations
   }
 
   render() {
     return (
       <section className="section">
-        <div className="column">
-          <div className="field">
-            <input placeholder="search genre..." className="input" onKeyUp={this.handleKeyUp} />
-          </div>
-        </div>
         <div className="container">
           <div className="columns is-multiline">
-            {this.state.radioStations.map(radioStation =>
+            {this.uniqueRadios().map(radioStation =>
               <div
                 key={radioStation.id}
                 className="column is-half-tablet is-one-quarter-desktop"
@@ -83,3 +67,39 @@ class RadioStationsIndex extends React.Component {
 }
 
 export default RadioStationsIndex
+
+//{this.state.radioStations.map(radioStation =>
+// {this.filterRadios().map(radioStation =>
+// componentDidUpdate(prevProps) {
+//   if(prevProps.location.pathname !== this.props.location.pathname) {
+//     this.getData()
+//   }
+// }
+//
+// handleKeyUp(e) {
+//   this.setState({ searchTerm: e.target.value })
+// }
+//
+// handleChange(e) {
+//   this.setState({ sortTerm: e.target.value })
+// }
+//
+// filterRadios() {
+//   const re = new RegExp(this.state.searchTerm, 'i')
+//   const [field, order] = this.state.sortTerm.split('|')
+//
+//   const filterRadios = _.filter(this.state.radioStations, radio => {
+//     return re.test(radio.title)
+//   })
+//   const sortedRadios = _.orderBy(filterRadios, [field], [order])
+//
+//   return sortedRadios
+// }
+// this.handleKeyUp = this.handleKeyUp.bind(this)
+// this.handleChange = this.handleChange.bind(this)
+// this.filterRadios = this.filterRadios.bind(this)
+// <div className="column">
+//   <div className="field">
+//     <input placeholder="search genre..." className="input" onKeyUp={this.handleKeyUp} />
+//   </div>
+// </div>
