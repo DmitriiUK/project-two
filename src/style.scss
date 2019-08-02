@@ -30,6 +30,18 @@ audio {
   box-shadow: 2px 3px 5px 1px black;
   background-color: #f1f3f4;
 }
+
+.column {
+  padding: 1.25rem;
+}
+
+.column {
+  div:hover{
+    color: #2F4F4F;
+  }
+}
+
+
 @media only screen and (min-width: 769px) {
   .audio {
     width: 60%;

@@ -15,8 +15,19 @@ class Index extends React.Component {
   getData() {
     axios.get('https://cors-anywhere.herokuapp.com/api.deezer.com/radio')
       .then(res => {
-        console.log(res.data)
-        this.setState({ radioStations: res.data.data })
+        const data = []
+        const titles = []
+
+        for(let i = 0; i < res.data.data.length; i++) {
+          if(!titles.includes(res.data.data[i].title)) {
+            data.push(res.data.data[i])
+            titles.push(res.data.data[i].title)
+          }
+        }
+
+        console.log(data)
+
+        this.setState({ radioStations: data })
       })
   }
 
