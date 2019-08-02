@@ -13,11 +13,7 @@ class Index extends React.Component {
   }
 
   getData() {
-    axios.get('https://cors-anywhere.herokuapp.com/api.deezer.com/radio', {
-      params: {
-        q: this.props.match.params.query
-      }
-    })
+    axios.get('https://cors-anywhere.herokuapp.com/api.deezer.com/radio')
       .then(res => {
         console.log(res.data)
         this.setState({ radioStations: res.data.data })
@@ -26,12 +22,6 @@ class Index extends React.Component {
 
   componentDidMount(){
     this.getData()
-  }
-
-  componentDidUpdate(prevProps) {
-    if(prevProps.location.pathname !== this.props.location.pathname) {
-      this.getData()
-    }
   }
 
   render() {

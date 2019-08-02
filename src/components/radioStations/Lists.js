@@ -13,11 +13,7 @@ class Lists extends React.Component {
   }
 
   getData() {
-    axios.get('https://cors-anywhere.herokuapp.com/api.deezer.com/radio/lists?index=25', {
-      params: {
-        q: this.props.match.params.query
-      }
-    })
+    axios.get('https://cors-anywhere.herokuapp.com/api.deezer.com/radio/lists?index=25')
       .then(res => {
         console.log(res.data)
         this.setState({ radioStations: res.data.data })
@@ -26,12 +22,6 @@ class Lists extends React.Component {
 
   componentDidMount(){
     this.getData()
-  }
-
-  componentDidUpdate(prevProps) {
-    if(prevProps.location.pathname !== this.props.location.pathname) {
-      this.getData()
-    }
   }
 
   render() {
@@ -45,7 +35,7 @@ class Lists extends React.Component {
                 key={radioStation.id}
                 className="column is-half-tablet is-one-quarter-desktop"
               >
-                <Link to={`/radio/lists?index=25/${radioStation.id}`}>
+                <Link to={`/radio/${radioStation.id}/tracks`}>
 
                   <Card
                     title={radioStation.title}

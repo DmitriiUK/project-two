@@ -8,7 +8,7 @@ class Footer extends React.Component {
       <footer className="footer">
         <div className="content has-text-centered">
           <p>
-            <strong>SEI-Project 2</strong> by <a href="#">Chris Beaney </a> & <a href="#">Dmitrii Solomatin </a>.
+            <strong>SEI-Project 2</strong> by <a href="https://github.com/ChrisBeaney" target="_blank">Chris Beaney </a> & <a href="https://github.com/DmitriiUK" target="_blank">Dmitrii Solomatin </a>.
           </p>
 
           <p>
