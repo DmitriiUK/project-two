@@ -72,7 +72,7 @@ class Tracks extends React.Component {
                         <h4>{this.convertSeconds(track.duration)}</h4>
                       </div>
                     </div>
-                    <div className="column is-full-desktop">
+                    <div className="audio">
                       <audio src={track.preview} controls />
                     </div>
 

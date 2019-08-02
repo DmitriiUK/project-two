@@ -12,6 +12,7 @@ import Tracks from './components/radioStations/Tracks'
 import Home from './components/pages/Home'
 
 import 'bulma'
+import './style.scss'
 
 class App extends React.Component {
 

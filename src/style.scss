@@ -1,0 +1,38 @@
+body {
+  background-color: #C0C0C0;
+}
+.footer, .navbar, .navbar-start {
+  background-color: #696969;
+}
+
+.navbar-item {
+  color: #DCDCDC;
+}
+
+.card-header {
+  background-color: grey;
+}
+
+
+span {
+  color: #708090;
+}
+.footer {
+  a {
+    color: #FEFEFE;
+  }
+  a:hover {
+    color: #2F4F4F;
+  }
+}
+audio {
+  width: 100%;
+  box-shadow: 2px 3px 5px 1px black;
+  background-color: #f1f3f4;
+}
+@media only screen and (min-width: 769px) {
+  .audio {
+    width: 60%;
+    margin-left: 20%;
+  }
+}
