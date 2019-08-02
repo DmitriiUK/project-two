@@ -10,7 +10,7 @@ body {
 }
 
 .card-header {
-  background-color: grey;
+  background-color: #778899;
 }
 
 
@@ -39,6 +39,10 @@ audio {
   div:hover{
     color: #2F4F4F;
   }
+}
+
+.card{
+  box-shadow: 2px 3px 5px 2px #696969;
 }
 
 

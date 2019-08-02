@@ -15,7 +15,6 @@ class Top extends React.Component {
   getData() {
     axios.get('https://cors-anywhere.herokuapp.com/api.deezer.com/radio/top')
       .then(res => {
-        console.log(res.data)
         this.setState({ radioStations: res.data.data })
       })
   }

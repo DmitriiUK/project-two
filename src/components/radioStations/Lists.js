@@ -15,7 +15,6 @@ class Lists extends React.Component {
   getData() {
     axios.get('https://cors-anywhere.herokuapp.com/api.deezer.com/radio/lists?index=25')
       .then(res => {
-        console.log(res.data)
         this.setState({ radioStations: res.data.data })
       })
   }

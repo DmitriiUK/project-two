@@ -16,7 +16,6 @@ class Tracks extends React.Component {
   getData() {
     axios.get(`https://cors-anywhere.herokuapp.com/api.deezer.com/radio/${this.props.match.params.id}/tracks`)
       .then(res => {
-        console.log(res.data)
         this.setState({ stationTracks: res.data.data })
       })
   }
