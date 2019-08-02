@@ -2,7 +2,7 @@
 React Hackathon
 
 ## Overview
-Build a React application that consumes Deezer's API.
+Build a React application that consumes Deezer's API. 
 
 This was the second project during General Assembly's London Software Engineering Immersive course.
 
@@ -16,13 +16,16 @@ This was the second project during General Assembly's London Software Engineerin
 
 ## Technologies used
 * HTML5
-* CSS3
+* CSS3 / Bulma framework
 * JavaScript (ES6)
+* React
 * Git
 * GitHub
 
 ## Approach taken
-### 
+###
+homepage > Browse / Top / Lists > Display track info + player (function to convert seconds to m:ss)
+Responsive design.
 
 ## Sample Snippets & Screenshots
 ### Wireframe
@@ -33,7 +36,10 @@ This was the second project during General Assembly's London Software Engineerin
 
 
 ## Wins & Blockers
+API learnings into practice
+Duplicated entries.
+Assumptions on what the API would do.
 
-
-## Future Features
-
+## Improvements
+Filter the radio objects before displaying them.
+Polish styling.
